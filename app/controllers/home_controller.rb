@@ -10,6 +10,7 @@ class HomeController < ApplicationController
       rescue StandardError
       @error = "That stock symbol does not exist. Please try again!"
       end
+      
     end
     end
   end

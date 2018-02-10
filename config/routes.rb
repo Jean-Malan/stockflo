@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  resources :stocks
+  resources :stocks
   devise_for :users
-  get 'home/index', to: 'home#index'
+  get '', to: 'home#index'
+  get '/home', to: 'home#index'
   get 'home/about', to: 'home#about'
-  get 'home', to: 'home#index'
-  post '/home/index', to: 'home#index'
-  get '/', to: 'home#index'
-  root 'home#index'
+  post '/home', to: 'home#index'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
