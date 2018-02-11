@@ -1,12 +1,44 @@
-<p>
-  <strong>Ticker:</strong>
-  <%= @stock.ticker %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @stock.user_id %>
-</p>
+  <% begin %>
+  <% @stock_quote = StockQuote::Stock.quote(@stock.ticker) %>
+   <% rescue StandardError %>
+   <% end %>
 
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Back', stocks_path %>
+
+<div class="panel panel-default">
+  
+  <div class="panel-heading"> <strong> <%= @stock_quote.name  %> - <%= @stock_quote.symbol  %> </strong><br/> </div>
+  <div class="panel-body">
+    <div class = "col-md-4">
+    
+      <h1>$<%= @stock_quote.l  %></h1><br/>
+       <strong> Earnings Per Share: </strong><%= @stock_quote.eps  %><br/>
+        <strong> Price/Earnings Ratio: </strong><%= @stock_quote.pe  %><br/>
+         <strong>Market Cap: </strong><%= @stock_quote.mc  %><br/>
+          <strong>Stock Open: </strong><%= @stock_quote.op  %><br/>
+          <strong>Day's Range:  </strong><%= @stock_quote.lo  %><br/>
+          <strong>Year High: </strong><%= @stock_quote.hi52  %><br/>
+          <strong> Year Low: </strong><%= @stock_quote.lo52  %><br/>
+          </div>
+         
+         <div class= "col-md-8">
+           <br/>
+        <p align="justify"> <%= @stock_quote.summary[0]["overview"] %></p>
+          </div> 
+  </div>
+
+  <div class="panel-footer"><%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-default"%> 
+<%= link_to 'Back', stocks_path, class: "btn btn-default" %> 
+<%= link_to 'Remove stock', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"  %>
+</div>
+</div>
+
+<br/><br/>
+
+<%= form_tag home_path, :method => 'POST' do %>
+<div class = "form-group">
+<%= text_field_tag 'id', nil, placeholder: "Enter Company Ticker Symbol", size: 50, class: 'form-control' %>
+<br/>
+<%= submit_tag 'Lookup stock quote', class: "btn btn-info" %>
+</div>
+<% end %>
