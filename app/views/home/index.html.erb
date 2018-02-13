@@ -1,3 +1,11 @@
+
+
+<body style="background-color:#333333">
+    
+    <br/><br/><br/><br/><br/><br/>
+    <h1 style= "text-align:center"><font color="#FFFFFF"><font size = 50px><strong>Search a company's ticker</strong></h1></font>
+    <br/><br/><br/><br/>
+    
 <%= form_tag home_path, :method => 'POST' do %>
 <div class = "form-group">
 <%= text_field_tag 'id', nil, placeholder: "Enter Company Ticker Symbol", size: 50, class: 'form-control' %>
@@ -13,23 +21,23 @@
 
 <div class="panel panel-default">
   
-  <div class="panel-heading"> <strong> <%= @stock.name  %> - <%= @stock.symbol  %> </strong><br/> </div>
+  <div class="panel-heading"> <font color="#333333"> <strong> <%= @stock.name  %> - <%= @stock.symbol  %> </font></strong><br/> </div>
   <div class="panel-body">
     <div class = "col-md-4">
     
-      <h1>$<%= @stock.l  %></h1><br/>
-       <strong> Earnings Per Share: </strong><%= @stock.eps  %><br/>
-        <strong> Price/Earnings Ratio: </strong><%= @stock.pe  %><br/>
-         <strong>Market Cap: </strong><%= @stock.mc  %><br/>
-          <strong>Stock Open: </strong><%= @stock.op  %><br/>
-          <strong>Day's Range:  </strong><%= @stock.lo  %><br/>
-          <strong>Year High: </strong><%= @stock.hi52  %><br/>
-          <strong> Year Low: </strong><%= @stock.lo52  %><br/>
+      <h1><font color="#333333">$<%= @stock.l  %></h1></font><br/>
+       <strong> <font color="#333333">Earnings Per Share: </strong><%= @stock.eps  %></font><br/>
+        <strong> <font color="#333333">Price/Earnings Ratio: </strong><%= @stock.pe  %></font><br/>
+         <strong><font color="#333333">Market Cap: </strong><%= @stock.mc  %></font><br/>
+          <strong><font color="#333333">Stock Open: </strong><%= @stock.op  %></font><br/>
+          <strong><font color="#333333">Day's Range:  </strong><%= @stock.lo  %></font><br/>
+          <strong><font color="#333333">Year High: </strong><%= @stock.hi52  %></font><br/>
+          <strong> <font color="#333333">Year Low: </strong><%= @stock.lo52  %></font><br/>
           </div>
          
          <div class= "col-md-8">
            <br/>
-        <p align="justify"> <%= @stock.summary[0]["overview"] %></p>
+        <p align="justify"><font color="#333333"> <%= @stock.summary[0]["overview"] %></font></p>
           </div> 
           
           <div class="panel-footer"><%= link_to 'New Stock', new_stock_path, class: "btn btn-default"%> 

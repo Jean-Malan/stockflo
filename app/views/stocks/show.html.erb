@@ -10,22 +10,23 @@
   <div class="panel-heading"> <strong> <%= @stock_quote.name  %> - <%= @stock_quote.symbol  %> </strong><br/> </div>
   <div class="panel-body">
     <div class = "col-md-4">
-    
-      <h1>$<%= @stock_quote.l  %></h1><br/>
-       <strong> Earnings Per Share: </strong><%= @stock_quote.eps  %><br/>
-        <strong> Price/Earnings Ratio: </strong><%= @stock_quote.pe  %><br/>
-         <strong>Market Cap: </strong><%= @stock_quote.mc  %><br/>
-          <strong>Stock Open: </strong><%= @stock_quote.op  %><br/>
-          <strong>Day's Range:  </strong><%= @stock_quote.lo  %><br/>
-          <strong>Year High: </strong><%= @stock_quote.hi52  %><br/>
-          <strong> Year Low: </strong><%= @stock_quote.lo52  %><br/>
+    <font color= "#333333">
+      <h1>$<%= @stock_quote.l  %></h1><br/></font>
+       <strong> <font color= "#333333">Earnings Per Share: </strong><%= @stock_quote.eps  %><br/></font>
+        <strong><font color= "#333333"> Price/Earnings Ratio: </strong><%= @stock_quote.pe  %><br/></font>
+         <strong><font color= "#333333">Market Cap: </strong><%= @stock_quote.mc  %><br/></font>
+          <strong><font color= "#333333">Stock Open: </strong><%= @stock_quote.op  %><br/></font>
+          <strong><font color= "#333333">Day's Range:  </strong><%= @stock_quote.lo  %><br/></font>
+          <strong><font color= "#333333">Year High: </strong><%= @stock_quote.hi52  %><br/></font>
+          <strong><font color= "#333333"> Year Low: </strong><%= @stock_quote.lo52  %></font><br/>
           </div>
          
          <div class= "col-md-8">
            <br/>
-        <p align="justify"> <%= @stock_quote.summary[0]["overview"] %></p>
+        <p align="justify"><font color= "#333333"> <%= @stock_quote.summary[0]["overview"] %></font></p>
           </div> 
   </div>
+  </font>
 
   <div class="panel-footer"><%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-default"%> 
 <%= link_to 'Back', stocks_path, class: "btn btn-default" %> 
@@ -33,12 +34,6 @@
 </div>
 </div>
 
+
 <br/><br/>
 
-<%= form_tag home_path, :method => 'POST' do %>
-<div class = "form-group">
-<%= text_field_tag 'id', nil, placeholder: "Enter Company Ticker Symbol", size: 50, class: 'form-control' %>
-<br/>
-<%= submit_tag 'Lookup stock quote', class: "btn btn-info" %>
-</div>
-<% end %>

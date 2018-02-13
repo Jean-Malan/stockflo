@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>StockFlo</title>
+  <body style="background-color:#333333">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,6 +15,7 @@
 <div class="container">
     <%= render 'home/flash' %>
 <%= yield %>
+
 </div>
 </body>
 </html>
